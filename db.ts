@@ -1,4 +1,14 @@
-import { Pool, neonConfig } from '@neondatabase/serverless';
+const { Pool } = require('pg');
+
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'triplexl',
+    password: 'postgres',
+    port: 5432,
+});
+
+module.exports = pool;import { Pool, neonConfig } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-serverless';
 import ws from "ws";
 import * as schema from "@shared/schema";
